@@ -20,8 +20,8 @@ def warshgarciamain(numericalData,size):
     Q[1] = W[0] 
     V[1] = 0
     
-     for k in range(n+1):
-         while (Q[t-1] <= W[k]):
+    for k in range(n+1):
+        while (Q[t-1] <= W[k]):
              combi(t)
         t += 1
         Q[t] = W[k]
@@ -43,10 +43,10 @@ def combi( k):
     x = 0
 
     m += 1
-     L[m] = V[k-1]
-     R[m] = V[k]
-     W[m] = x = Q[k-1] + Q[k]
-     t -= 1
+    L[m] = V[k-1]
+    R[m] = V[k]
+    W[m] = x = Q[k-1] + Q[k]
+    t -= 1
     
     j = k 
     for j in range(t + 1):
@@ -67,21 +67,23 @@ def mark( k, p):
     D[k] = p 
     if (L[k] >= 0):
         mark(L[k], p + 1)
-    if (R[k] >= 0)
+    if (R[k] >= 0):
         mark(R[k], p + 1)
 
 
 def build(b):
     j = m 
     if(D[t] == b):
-        L[j] = (t += 1)
+        t += 1
+        L[j] = t
     else:
         m -= 1
         L[j] = m 
         build(b + 1)
 
     if (D[t] == b):
-        R[j] = (t += 1)
+        t += 1
+        R[j] = t
     else:
         m -= 1
         R[j] = m 
